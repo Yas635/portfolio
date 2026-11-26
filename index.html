@@ -5,13 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Yassine Ahrimch — Data & AI</title>
 <style>
-:root{--bg:#f3f6ff;--glass:rgba(255,255,255,.62);--text:#0d1630;--muted:#5a6788;--a1:#5b5bff;--a2:#00c2ff;--a3:#b45cff;--line:rgba(91,91,255,.18);--grid:rgba(91,91,255,.07);--term:#0d1630;--termtxt:#c9d6ff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#080c1c;--glass:rgba(20,28,58,.6);--text:#e8eeff;--muted:#9aa8cc;--a1:#7c7cff;--a2:#27d3ff;--a3:#c27bff;--line:rgba(124,124,255,.25);--grid:rgba(124,124,255,.08);--term:#050818;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#080c1c;--glass:rgba(20,28,58,.6);--text:#e8eeff;--muted:#9aa8cc;--a1:#7c7cff;--a2:#27d3ff;--a3:#c27bff;--line:rgba(124,124,255,.25);--grid:rgba(124,124,255,.08);--term:#050818;color-scheme:dark}
+:root{--bg:#fbfdff;--glass:rgba(255,255,255,.62);--text:#0d1630;--muted:#5a6788;--a1:#5b5bff;--a2:#00c2ff;--a3:#b45cff;--line:rgba(91,91,255,.18);--grid:rgba(91,91,255,.07);--term:#ffffff;--termtxt:#1e2a4a;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden;position:relative}
 body::before{content:"";position:fixed;inset:0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse at 50% 20%,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at 50% 20%,#000 20%,transparent 75%);pointer-events:none;z-index:0}
-.blob{position:fixed;border-radius:50%;filter:blur(80px);opacity:.45;pointer-events:none;z-index:0;animation:float 16s ease-in-out infinite alternate}
+.blob{position:fixed;border-radius:50%;filter:blur(80px);opacity:.3;pointer-events:none;z-index:0;animation:float 16s ease-in-out infinite alternate}
 .b1{width:420px;height:420px;background:var(--a1);top:-120px;left:-100px}
 .b2{width:380px;height:380px;background:var(--a2);top:20%;right:-120px;animation-delay:-5s}
 .b3{width:340px;height:340px;background:var(--a3);bottom:-100px;left:30%;animation-delay:-9s;opacity:.3}
@@ -37,10 +35,10 @@ h1{font-size:clamp(2.3rem,6.5vw,3.8rem);line-height:1.05;margin:18px 0 12px;lett
 .btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px -8px var(--a1)}
 .btn.p{background:linear-gradient(100deg,var(--a1),var(--a2));color:#fff;border:0;box-shadow:0 8px 24px -10px var(--a1)}
 .term{background:var(--term);color:var(--termtxt);border-radius:16px;padding:0;box-shadow:0 24px 60px -24px var(--a1);border:1px solid var(--line);overflow:hidden;font:.84rem/1.7 ui-monospace,Menlo,Consolas,monospace}
-.term .bar{display:flex;gap:6px;padding:10px 14px;background:rgba(255,255,255,.06)}
+.term .bar{display:flex;gap:6px;padding:10px 14px;background:rgba(91,91,255,.07)}
 .term .bar i{width:10px;height:10px;border-radius:50%;background:#ff5f57}.term .bar i:nth-child(2){background:#febc2e}.term .bar i:nth-child(3){background:#28c840}
 .term pre{margin:0;padding:14px 16px;white-space:pre-wrap;overflow-x:auto}
-.k{color:#ff8fd1}.s{color:#7ee0a8}.f{color:#6ec8ff}.c{color:#7683a8}
+.k{color:#c026d3}.s{color:#059669}.f{color:#2563eb}.c{color:#8b97b8}
 .cur{display:inline-block;width:8px;height:15px;background:var(--a2);vertical-align:-2px;animation:blink 1s steps(2) infinite}
 @keyframes blink{50%{opacity:0}}
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:34px}
@@ -113,7 +111,13 @@ footer{color:var(--muted);font:.8rem ui-monospace,Menlo,Consolas,monospace;text-
 <h2 id="projets" class="rv">Projets</h2>
 <p class="sub rv">Réalisations issues de mes stages et de mon parcours.</p>
 <div class="grid w rv">
-<div class="card"><span class="tag">Data Engineering · ML</span><h3>Scoring de fiabilité de capteurs</h3><p>Pipeline PySpark évaluant la fiabilité de signaux de vitesse sur des millions de mesures, sans labels : scoring expert, KMeans et Isolation Forest.</p><div class="chips"><span class="chip">PySpark</span><span class="chip">Databricks</span><span class="chip">FFT</span><span class="chip">Isolation Forest</span></div></div>
+<div class="card" style="grid-column:1/-1"><span class="tag">★ Projet phare · Data Engineering · ML</span><h3>Scoring de fiabilité de capteurs</h3><p>Pipeline PySpark évaluant la fiabilité de signaux de vitesse sur des millions de mesures, sans labels : scoring expert, KMeans et Isolation Forest.</p><div class="chips"><span class="chip">PySpark</span><span class="chip">Databricks</span><span class="chip">FFT</span><span class="chip">Isolation Forest</span></div></div>
+<div class="card"><span class="tag">Deep Learning · Vision</span><h3>Détection de pneumonie par IA</h3><p>DenseNet121 adapté à la classification de radiographies thoraciques, avec explicabilité Grad-CAM et une application web Django qui génère un rapport PDF. Précision 92 %, rappel 89 %, F1 90 %.</p><div class="chips"><span class="chip">DenseNet121</span><span class="chip">TensorFlow</span><span class="chip">Grad-CAM</span><span class="chip">Django</span><span class="chip">OpenCV</span></div></div>
+<div class="card"><span class="tag">Deep Learning · Séries temporelles</span><h3>Smart Traffic : prédiction des embouteillages</h3><p>Modèles LSTM entraînés sur le trafic de 4 villes (Los Angeles, Bay Area, Shenzhen, Chengdu), avec un tableau de bord Streamlit et carte interactive. MAE de 2,35 km/h et R² de 0,78 sur PEMS-Bay.</p><div class="chips"><span class="chip">LSTM</span><span class="chip">Time series</span><span class="chip">Streamlit</span><span class="chip">Pydeck</span><span class="chip">Pandas</span></div></div>
+<div class="card"><span class="tag">Machine Learning · Scoring</span><h3>Détection de fraude bancaire</h3><p>Random Forest entraîné sur des transactions par carte très déséquilibrées (SMOTE, standardisation, split stratifié), avec une interface de bureau PyQt6 qui simule un GAB.</p><div class="chips"><span class="chip">Random Forest</span><span class="chip">SMOTE</span><span class="chip">scikit-learn</span><span class="chip">PyQt6</span></div></div>
+<div class="card"><span class="tag">Deep Learning · Vision · Document AI · Finatech</span><h3>Détection de clauses SLA dans des contrats scannés</h3><p>Fine-tuning de YOLOv8 pour localiser la section SLA sur des contrats scannés (images) et l’isoler en vue de son extraction : annotation du jeu de données avec Roboflow, scripts d’entraînement et d’inférence en Python.</p><div class="chips"><span class="chip">YOLOv8</span><span class="chip">Ultralytics</span><span class="chip">Roboflow</span><span class="chip">Python</span></div></div>
+<div class="card"><span class="tag">Web · E-commerce</span><h3>Boutique en ligne MyShop</h3><p>Site e-commerce Django : catalogue avec variantes (taille, couleur, stock), panier, coupons, zones de livraison, suivi de commande, favoris et interface multilingue. Déploiement avec Docker.</p><div class="chips"><span class="chip">Django</span><span class="chip">PostgreSQL</span><span class="chip">Docker</span><span class="chip">Gunicorn</span></div></div>
+<div class="card"><span class="tag">Développement web · Python</span><h3>InfoStage : archivage automatique des stages</h3><p>Application web Django pour archiver les stages d’une école d’ingénieurs : extraction automatique d’informations depuis des PDF et Word, recherche multicritères, statistiques et visualisations.</p><div class="chips"><span class="chip">Django</span><span class="chip">Python</span><span class="chip">Bootstrap</span><span class="chip">Extraction de texte</span></div></div>
 <div class="card"><span class="tag">IA · SaaS</span><h3>Outils IA &amp; interfaces UI/UX</h3><p>Intégration de fonctionnalités IA dans une plateforme SaaS, conception d’interfaces et automatisation, en équipe agile.</p><div class="chips"><span class="chip">IA</span><span class="chip">UI/UX</span><span class="chip">Agile</span></div></div>
 <div class="card"><span class="tag">Automatisation</span><h3>YASCOPY</h3><p>Outil Python qui automatise la gestion de fichiers et envoie des notifications par e-mail.</p><div class="chips"><span class="chip">Python</span><span class="chip">Automatisation</span></div></div>
 </div>
@@ -122,7 +126,7 @@ footer{color:var(--muted);font:.8rem ui-monospace,Menlo,Consolas,monospace;text-
 <p class="sub rv">Trois stages en data, IA et automatisation.</p>
 <div class="tl rv">
 <div class="card"><h3>Stage PFE — Data Engineering &amp; ML</h3><span class="meta">Stellantis ATC · Fév. – Août 2026</span><ul><li>Pipelines PySpark de scoring de fiabilité sur signaux capteurs.</li><li>Feature engineering : MAD, médiane, FFT, cohérence état/vitesse.</li><li>Traitement distribué de millions de mesures sur Apache Spark.</li></ul></div>
-<div class="card"><h3>Stage — IA &amp; Développement logiciel</h3><span class="meta">Finatech Group · Janv. – Avril 2025</span><ul><li>Intégration d’outils IA dans un environnement SaaS agile.</li><li>Conception d’interfaces et suivi d’un produit en phase bêta.</li></ul></div>
+<div class="card"><h3>Stage — IA &amp; Développement logiciel</h3><span class="meta">Finatech Group · Janv. – Avril 2025</span><ul><li>Intégration d’outils IA dans un environnement SaaS agile.</li><li>Conception d’interfaces et suivi d’un produit en phase bêta.</li><li>Détection de la section SLA dans des contrats scannés avec YOLOv8 : annotation (Roboflow), fine-tuning du modèle et scripts d’inférence.</li></ul></div>
 <div class="card"><h3>Stage — Informatique &amp; Automatisation</h3><span class="meta">TENMAR (Petit Bateau) · Janv. – Mars 2024</span><ul><li>Développement de YASCOPY (Python) et utilisation de SAP.</li></ul></div>
 </div>
 
