@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Yassine Ahrimch — Data & AI</title>
+<style>
+:root{--bg:#f3f6ff;--glass:rgba(255,255,255,.62);--text:#0d1630;--muted:#5a6788;--a1:#5b5bff;--a2:#00c2ff;--a3:#b45cff;--line:rgba(91,91,255,.18);--grid:rgba(91,91,255,.07);--term:#0d1630;--termtxt:#c9d6ff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#080c1c;--glass:rgba(20,28,58,.6);--text:#e8eeff;--muted:#9aa8cc;--a1:#7c7cff;--a2:#27d3ff;--a3:#c27bff;--line:rgba(124,124,255,.25);--grid:rgba(124,124,255,.08);--term:#050818;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#080c1c;--glass:rgba(20,28,58,.6);--text:#e8eeff;--muted:#9aa8cc;--a1:#7c7cff;--a2:#27d3ff;--a3:#c27bff;--line:rgba(124,124,255,.25);--grid:rgba(124,124,255,.08);--term:#050818;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden;position:relative}
+body::before{content:"";position:fixed;inset:0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse at 50% 20%,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at 50% 20%,#000 20%,transparent 75%);pointer-events:none;z-index:0}
+.blob{position:fixed;border-radius:50%;filter:blur(80px);opacity:.45;pointer-events:none;z-index:0;animation:float 16s ease-in-out infinite alternate}
+.b1{width:420px;height:420px;background:var(--a1);top:-120px;left:-100px}
+.b2{width:380px;height:380px;background:var(--a2);top:20%;right:-120px;animation-delay:-5s}
+.b3{width:340px;height:340px;background:var(--a3);bottom:-100px;left:30%;animation-delay:-9s;opacity:.3}
+@keyframes float{to{transform:translate(40px,60px) scale(1.15)}}
+a{color:inherit}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;margin:12px auto 0;max-width:960px;width:calc(100% - 24px);display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 18px;border-radius:99px;background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--line)}
+nav b{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.9rem}
+nav b span{color:var(--a1)}
+nav ul{list-style:none;display:flex;gap:16px;margin:0;padding:0;font-size:.88rem;overflow-x:auto}
+nav a{text-decoration:none;color:var(--muted);white-space:nowrap}nav a:hover{color:var(--a1)}
+main{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:0 20px 56px}
+.hero{padding:70px 0 20px;display:grid;gap:30px;grid-template-columns:1fr;align-items:center}
+@media(min-width:800px){.hero{grid-template-columns:1.3fr 1fr}}
+.pill{display:inline-flex;align-items:center;gap:8px;font:.78rem ui-monospace,Menlo,Consolas,monospace;padding:6px 14px;border:1px solid var(--line);border-radius:99px;background:var(--glass);color:var(--muted)}
+.dot{width:8px;height:8px;border-radius:50%;background:#16d17a;box-shadow:0 0 0 0 #16d17a;animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px transparent}100%{box-shadow:0 0 0 0 transparent}}
+h1{font-size:clamp(2.3rem,6.5vw,3.8rem);line-height:1.05;margin:18px 0 12px;letter-spacing:-.03em}
+.grad{background:linear-gradient(100deg,var(--a1),var(--a2) 50%,var(--a3));background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+@keyframes shine{to{background-position:200% center}}
+.lead{color:var(--muted);max-width:54ch;margin:0 0 24px}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{padding:11px 20px;border-radius:12px;text-decoration:none;font-weight:600;font-size:.93rem;border:1px solid var(--line);background:var(--glass);backdrop-filter:blur(10px);transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px -8px var(--a1)}
+.btn.p{background:linear-gradient(100deg,var(--a1),var(--a2));color:#fff;border:0;box-shadow:0 8px 24px -10px var(--a1)}
+.term{background:var(--term);color:var(--termtxt);border-radius:16px;padding:0;box-shadow:0 24px 60px -24px var(--a1);border:1px solid var(--line);overflow:hidden;font:.84rem/1.7 ui-monospace,Menlo,Consolas,monospace}
+.term .bar{display:flex;gap:6px;padding:10px 14px;background:rgba(255,255,255,.06)}
+.term .bar i{width:10px;height:10px;border-radius:50%;background:#ff5f57}.term .bar i:nth-child(2){background:#febc2e}.term .bar i:nth-child(3){background:#28c840}
+.term pre{margin:0;padding:14px 16px;white-space:pre-wrap;overflow-x:auto}
+.k{color:#ff8fd1}.s{color:#7ee0a8}.f{color:#6ec8ff}.c{color:#7683a8}
+.cur{display:inline-block;width:8px;height:15px;background:var(--a2);vertical-align:-2px;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:34px}
+.glass,.stat,.card{background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:18px}
+.stat{padding:16px 18px}.stat b{display:block;font-size:1.7rem;line-height:1.1;background:linear-gradient(100deg,var(--a1),var(--a2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{font-size:.82rem;color:var(--muted)}
+h2{font-size:1.7rem;margin:68px 0 6px;letter-spacing:-.02em}
+h2::before{content:"// ";font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--a1);font-size:1.1rem}
+.sub{color:var(--muted);margin:0 0 22px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
+.grid.w{grid-template-columns:repeat(auto-fit,minmax(285px,1fr))}
+.card{padding:20px;transition:transform .25s,box-shadow .25s,border-color .25s}
+.card:hover{transform:translateY(-4px);border-color:var(--a1);box-shadow:0 18px 40px -22px var(--a1)}
+.card h3{margin:0 0 4px;font-size:1.05rem}.card p{margin:0 0 8px;font-size:.92rem;color:var(--muted)}
+.ico{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-size:1.3rem;margin-bottom:10px;background:linear-gradient(135deg,color-mix(in srgb,var(--a1) 25%,transparent),color-mix(in srgb,var(--a2) 25%,transparent))}
+.tag{font:.7rem ui-monospace,Menlo,Consolas,monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--a1)}
+.meta{font:.8rem ui-monospace,Menlo,Consolas,monospace;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chip{font:.75rem ui-monospace,Menlo,Consolas,monospace;padding:3px 10px;border-radius:99px;border:1px solid var(--line);background:color-mix(in srgb,var(--a1) 8%,transparent)}
+.tl{border-left:2px solid var(--line);padding-left:22px;display:grid;gap:14px;margin-left:6px}
+.tl .card{position:relative}
+.tl .card::before{content:"";position:absolute;left:-31px;top:24px;width:12px;height:12px;border-radius:50%;background:linear-gradient(var(--a1),var(--a2));box-shadow:0 0 0 4px var(--bg),0 0 14px var(--a2)}
+.tl ul,.cert{margin:8px 0 0;padding-left:18px;font-size:.92rem;color:var(--muted)}
+.cta{text-align:center;padding:44px 22px;margin-top:68px;border-radius:24px;color:#fff;background:linear-gradient(120deg,var(--a1),var(--a3) 55%,var(--a2));background-size:200% auto;animation:shine 10s linear infinite;box-shadow:0 30px 70px -30px var(--a1)}
+.cta h2{margin:0 0 8px;font-size:2rem}.cta h2::before{content:""}.cta p{margin:0 0 20px;opacity:.95}
+.cta .btn{background:rgba(255,255,255,.95);color:#1a1a4d;border:0;margin:4px}
+footer{color:var(--muted);font:.8rem ui-monospace,Menlo,Consolas,monospace;text-align:center;margin-top:30px}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+<nav><b>&lt;<span>yassine</span>/&gt;</b><ul><li><a href="#roles">Profil</a></li><li><a href="#projets">Projets</a></li><li><a href="#experience">Expérience</a></li><li><a href="#competences">Stack</a></li><li><a href="#contact">Contact</a></li></ul></nav>
+<main>
+<section class="hero">
+<div>
+<span class="pill"><span class="dot"></span>open_to_work = True</span>
+<h1>Je transforme les <span class="grad">données</span> en intelligence.</h1>
+<p class="lead">Master en Intelligence Artificielle &amp; Big Data (HEM Casablanca). Analyse, Machine Learning, IA générative, pipelines Big Data : je couvre toute la chaîne, de la donnée brute au modèle en production.</p>
+<div class="btns"><a class="btn p" href="#contact">Me contacter</a><a class="btn" href="#projets">Voir mes projets</a><a class="btn" href="https://github.com/Yas635">GitHub ↗</a></div>
+</div>
+<div class="term"><div class="bar"><i></i><i></i><i></i></div>
+<pre><span class="k">class</span> <span class="f">Yassine</span>:
+  role    = <span class="s">"Data &amp; AI Engineer"</span>
+  degree  = <span class="s">"Master IA &amp; Big Data"</span>
+  stack   = [<span class="s">"Python"</span>, <span class="s">"SQL"</span>,
+             <span class="s">"PySpark"</span>, <span class="s">"Databricks"</span>]
+  focus   = [<span class="s">"ML"</span>, <span class="s">"LLM"</span>, <span class="s">"Big Data"</span>]
+  base    = <span class="s">"Casablanca"</span>
+  <span class="c"># prêt à construire</span>
+  <span class="f">run</span>()<span class="cur"></span></pre></div>
+</section>
+<div class="stats rv">
+<div class="stat"><b>3</b><span>stages en entreprise</span></div>
+<div class="stat"><b>Millions</b><span>de mesures traitées</span></div>
+<div class="stat"><b>3</b><span>certifications</span></div>
+<div class="stat"><b>3</b><span>langues parlées</span></div>
+</div>
+
+<h2 id="roles" class="rv">Ce que j’apporte</h2>
+<p class="sub rv">Un profil polyvalent pour plusieurs métiers de la donnée et de l’IA.</p>
+<div class="grid rv">
+<div class="card"><div class="ico">📊</div><h3>Data Analyst</h3><p>Nettoyage, analyse et visualisation pour éclairer les décisions.</p><div class="chips"><span class="chip">SQL</span><span class="chip">Pandas</span><span class="chip">Power BI</span></div></div>
+<div class="card"><div class="ico">🤖</div><h3>Machine Learning</h3><p>Modèles supervisés et non supervisés, feature engineering, anomalies.</p><div class="chips"><span class="chip">Python</span><span class="chip">KMeans</span><span class="chip">Deep Learning</span></div></div>
+<div class="card"><div class="ico">🧠</div><h3>AI Engineer</h3><p>IA générative et LLM intégrés dans des applications et des APIs.</p><div class="chips"><span class="chip">LLM</span><span class="chip">FastAPI</span><span class="chip">MLOps</span></div></div>
+<div class="card"><div class="ico">⚡</div><h3>Data Engineer</h3><p>Pipelines distribués sur de gros volumes, dans le cloud.</p><div class="chips"><span class="chip">PySpark</span><span class="chip">Databricks</span><span class="chip">Kafka</span></div></div>
+</div>
+
+<h2 id="projets" class="rv">Projets</h2>
+<p class="sub rv">Réalisations issues de mes stages et de mon parcours.</p>
+<div class="grid w rv">
+<div class="card"><span class="tag">Data Engineering · ML</span><h3>Scoring de fiabilité de capteurs</h3><p>Pipeline PySpark évaluant la fiabilité de signaux de vitesse sur des millions de mesures, sans labels : scoring expert, KMeans et Isolation Forest.</p><div class="chips"><span class="chip">PySpark</span><span class="chip">Databricks</span><span class="chip">FFT</span><span class="chip">Isolation Forest</span></div></div>
+<div class="card"><span class="tag">IA · SaaS</span><h3>Outils IA &amp; interfaces UI/UX</h3><p>Intégration de fonctionnalités IA dans une plateforme SaaS, conception d’interfaces et automatisation, en équipe agile.</p><div class="chips"><span class="chip">IA</span><span class="chip">UI/UX</span><span class="chip">Agile</span></div></div>
+<div class="card"><span class="tag">Automatisation</span><h3>YASCOPY</h3><p>Outil Python qui automatise la gestion de fichiers et envoie des notifications par e-mail.</p><div class="chips"><span class="chip">Python</span><span class="chip">Automatisation</span></div></div>
+</div>
+
+<h2 id="experience" class="rv">Expérience</h2>
+<p class="sub rv">Trois stages en data, IA et automatisation.</p>
+<div class="tl rv">
+<div class="card"><h3>Stage PFE — Data Engineering &amp; ML</h3><span class="meta">Stellantis ATC · Fév. – Août 2026</span><ul><li>Pipelines PySpark de scoring de fiabilité sur signaux capteurs.</li><li>Feature engineering : MAD, médiane, FFT, cohérence état/vitesse.</li><li>Traitement distribué de millions de mesures sur Apache Spark.</li></ul></div>
+<div class="card"><h3>Stage — IA &amp; Développement logiciel</h3><span class="meta">Finatech Group · Janv. – Avril 2025</span><ul><li>Intégration d’outils IA dans un environnement SaaS agile.</li><li>Conception d’interfaces et suivi d’un produit en phase bêta.</li></ul></div>
+<div class="card"><h3>Stage — Informatique &amp; Automatisation</h3><span class="meta">TENMAR (Petit Bateau) · Janv. – Mars 2024</span><ul><li>Développement de YASCOPY (Python) et utilisation de SAP.</li></ul></div>
+</div>
+
+<h2 id="competences" class="rv">Stack</h2>
+<p class="sub rv">Les technologies que j’utilise.</p>
+<div class="grid w rv">
+<div class="card"><h3>Data &amp; IA</h3><div class="chips"><span class="chip">PySpark</span><span class="chip">Spark</span><span class="chip">Databricks</span><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Deep Learning</span><span class="chip">LLM</span><span class="chip">MLOps</span><span class="chip">Kafka</span><span class="chip">Data Warehouse</span></div></div>
+<div class="card"><h3>Cloud &amp; API</h3><div class="chips"><span class="chip">Azure</span><span class="chip">AWS</span><span class="chip">FastAPI</span><span class="chip">REST API</span></div></div>
+<div class="card"><h3>Programmation</h3><div class="chips"><span class="chip">Python</span><span class="chip">SQL</span><span class="chip">Java</span><span class="chip">C</span><span class="chip">JavaScript</span><span class="chip">PHP</span><span class="chip">Django</span><span class="chip">Flask</span><span class="chip">JEE</span></div></div>
+<div class="card"><h3>Bases de données &amp; outils</h3><div class="chips"><span class="chip">MySQL</span><span class="chip">MongoDB</span><span class="chip">Git</span><span class="chip">Linux</span><span class="chip">Power BI</span><span class="chip">VS Code</span></div></div>
+</div>
+
+<h2 class="rv">Formation</h2>
+<p class="sub rv">Parcours et certifications.</p>
+<div class="grid w rv">
+<div class="card"><h3>Master IA &amp; Big Data</h3><span class="meta">HEM Casablanca · 2024 – 2026</span><p style="margin-top:8px">Licence Ingénierie Informatique (HEM, 2023 – 2024) · Classe préparatoire PSI (Ibn Ghazi, Marrakech, 2021 – 2023).</p></div>
+<div class="card"><h3>Certifications</h3><ul class="cert"><li>PCEP — Python Entry-Level Programmer</li><li>Data Analyst — Microsoft &amp; LinkedIn</li><li>IA Générative — Microsoft &amp; LinkedIn</li></ul><p style="margin-top:10px">Arabe (natif) · Français (C1) · Anglais (B1)</p></div>
+</div>
+
+<section class="cta rv" id="contact">
+<h2>Construisons quelque chose ensemble</h2>
+<p>À la recherche d’un premier poste en Data, Machine Learning ou IA. Casablanca, Maroc · Permis B.</p>
+<a class="btn" href="mailto:yahrimch@gmail.com">yahrimch@gmail.com</a><a class="btn" href="tel:+212615134312">+212 615 134 312</a><a class="btn" href="https://github.com/Yas635">GitHub</a>
+</section>
+<footer>© 2026 Yassine Ahrimch</footer>
+</main>
+<script>
+try{var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.08});document.querySelectorAll('.rv').forEach(function(el){io.observe(el)})}catch(e){document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')})}
+</script>
+</body>
+</html>
